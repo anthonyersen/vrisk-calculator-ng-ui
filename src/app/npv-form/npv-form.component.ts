@@ -11,11 +11,11 @@ import { ICalculateNpvRequest } from '../model/npvRequest';
   providers: [CashFlowReducer]
 })
 export class NpvFormComponent {
-  cashFlows: ICashFlow[] = [{ value: 3000 },{ value: 4500 },{ value: 3000 }];
-  initialInvestment: number = 10000;
-  discountLowerBound: number = 1;
-  discountUpperBound: number = 5;
-  discountIncrement: number = 0.25;
+  cashFlows: ICashFlow[] = [{ value: 0 }];
+  initialInvestment: number = 0;
+  discountLowerBound: number = 0;
+  discountUpperBound: number = 0;
+  discountIncrement: number = 0;
 
   @Output() onCalculate: EventEmitter<ICalculateNpvRequest> = new EventEmitter<ICalculateNpvRequest>();
 
