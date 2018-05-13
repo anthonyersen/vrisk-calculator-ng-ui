@@ -1,0 +1,48 @@
+<div class="card">
+    <h4 class="card-header">NPV Calculator</h4>
+    <div class="card-body">
+      <form>
+        <!-- Initial Investment -->
+        <div class="form-group row">
+            <label class="col-12 col-sm-4 col-md-3 col-lg-2 col-form-label" for="initialInvestment">Investment</label>
+            <div class="col-12 col-sm-8 col-md-9 col-lg-10">
+              <npv-input-group prepend="$">
+                <input id="initialInvestment" name="initialInvestment" class="form-control" type="number" step="1" [(ngModel)]="initialInvestment" />
+              </npv-input-group>
+            </div>
+        </div>
+
+        <!-- Discount Rates -->
+        <fieldset class="form-group">
+          <legend>Discount Rate</legend>
+          <npv-discount id="discountLowerBound" label="Lower Bound" [value]="discountLowerBound"
+            (onChange)="handlePropertyChange('discountLowerBound', $event)">
+          </npv-discount>
+          <npv-discount id="discountUpperBound" label="Upper Bound" [value]="discountUpperBound"
+            (onChange)="handlePropertyChange('discountUpperBound', $event)">
+          </npv-discount>
+          <npv-discount id="discountIncrement" label="Increment" [value]="discountIncrement"
+            (onChange)="handlePropertyChange('discountIncrement', $event)">
+          </npv-discount>
+        </fieldset>
+
+        <!-- Cash Flows -->
+        <fieldset class="form-group">
+          <legend>Cash Flows</legend>
+          <npv-cashflow
+            *ngFor="let cashFlow of cashFlows; let i = index"
+            yearNumber="{{ i + 1 }}"
+            [cashFlow]="cashFlow"
+            (onChange)="handleCashFlowChange($event)"
+            (onRemove)="handleRemoveYear($event)">
+          </npv-cashflow>
+
+        </fieldset>
+
+        <div class="float-right npv-form-buttons">
+          <button type="button" class="btn btn-primary" (click)="handleAddYear()">Add Year</button>
+          <button type="button" class="btn btn-success" (click)="handleCalculate()">Calculate</button>
+        </div>
+      </form>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="row form-group">
+  <label for="year-{{yearNumber}}-cashflow" class="col-12 col-sm-4 col-md-3 col-lg-2 col-form-label">Year {{ yearNumber }}</label>
+  <div class="col-12 col-sm-8 col-md-9 col-lg-10">
+    <div class="input-group">
+      <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+      <input step="1" type="number" name="year-{{yearNumber}}" class="form-control" [(ngModel)]="cashFlow.value" (change)="handleChange()" />
+      <div class="input-group-append">
+        <button type="button" class="btn btn-danger" (click)="handleRemove()">-</button>
+      </div>
+    </div>
+  </div>
+</div>

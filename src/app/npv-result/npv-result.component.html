@@ -1,0 +1,10 @@
+<div *ngIf="results && results.length > 0 && chartData" class="result">
+  <npv-chart-options [chartType]="chartType" (onChange)="handleChartTypeChange($event)"></npv-chart-options>
+  <canvas baseChart
+    [chartType]="chartType"
+    [datasets]="chartData.datasets"
+    [labels]="chartData.labels"
+    [options]="chartData.options"
+    [colors]="chartData.colors">
+  </canvas>
+</div>

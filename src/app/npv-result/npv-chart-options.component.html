@@ -1,0 +1,10 @@
+<div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input name="chart-type" type="radio" class="form-check-input" checked="{{ chartType ==='bar' ? 'checked' : null }}" value="bar" (change)="handleChange($event)" /> Bar
+  </label>
+</div>
+<div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input name="chart-type" type="radio" class="form-check-input" checked="{{ chartType ==='line' ? 'checked' : null }}" value="line" (change)="handleChange($event)" /> Line
+  </label>
+</div>
