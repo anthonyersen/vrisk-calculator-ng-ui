@@ -18,6 +18,8 @@ export class NpvCalculatorComponent {
   }
 
   handleCalculate(request: ICalculateNpvRequest): void {
+    this.results = [];
+    this.errorMessage = null;
     this._calculatorService.calculateNpv(request)
       .subscribe(this.handleCalculateSuccess, this.handleCalculateError);
   }
@@ -28,6 +30,7 @@ export class NpvCalculatorComponent {
   }
 
   handleCalculateError(error: any): void {
+    this.results = [];
     this.errorMessage = typeof error === 'string' ? error : 'Something has gone wrong';
   }
 }
